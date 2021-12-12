@@ -19,7 +19,7 @@ public class MainBouquet {
         bouquet1.removeFlower("snowdrop");
         System.out.println(bouquet1.getAll());
 
-        bouquet2.addAllFlowers(Arrays.asList("chrysanthemum", "goldenrod","dandelion", "daffodil"));
+        bouquet2.addAllFlowers(Arrays.asList("chrysanthemum", "goldenrod",null, "daffodil"));
         System.out.println(bouquet2.getAll());
     }
 }

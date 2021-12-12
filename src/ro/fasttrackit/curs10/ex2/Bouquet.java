@@ -13,13 +13,21 @@ public class Bouquet {
         return flowers;
     }
 
-    public void addFlower (String newFlower) {
-        flowers.add(newFlower);
+    public boolean addFlower (String newFlower) {
+        if (newFlower != null) {
+            flowers.add(newFlower);
+            return true;
+        }
+        return false;
     }
 
     public void addAllFlowers (List<String> allFlowers) {
-        if (allFlowers.size() > 0) {
-            flowers.addAll(allFlowers);
+        if (allFlowers != null) {
+            for (String element : allFlowers){
+                if (element != null) {
+                    flowers.add(element);
+                }
+            }
         }
     }
 
