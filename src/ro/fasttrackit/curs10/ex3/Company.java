@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Company {
 
-    List<Person> employees = new ArrayList<>();
+    private List<Person> employees = new ArrayList<>();
 
     public Person getManager() {
         for (Person employee : employees) {
@@ -20,7 +20,7 @@ public class Company {
     public List<Person> getPersons (String profession) {
         List <Person> personsWithSameProfession = new ArrayList<>();
         for (Person employee : employees) {
-            if (employee.getPosition().equals(profession)) {
+            if (employee.getPosition().equalsIgnoreCase(profession)) {
                 personsWithSameProfession.add(employee);
             }
         }
@@ -52,7 +52,7 @@ public class Company {
     }
 
     public void employAll (List<Person> allPersonsList) {
-        if (allPersonsList.size() > 0) {
+        if (allPersonsList != null) {
             employees.addAll(allPersonsList);
         }
     }

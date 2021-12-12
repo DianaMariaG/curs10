@@ -2,6 +2,7 @@ package ro.fasttrackit.curs10.ex1;
 
 import java.util.*;
 
+
 public class Basket {
     private List<String> fruits;
     
@@ -16,13 +17,13 @@ public class Basket {
 
     public boolean remove (String specialFruit) {
         ListIterator<String> iter = fruits.listIterator();
+        int initialSize = fruits.size();
         while (iter.hasNext()) {//cat timp mai e un elm in lista
             if (iter.next().equals(specialFruit)) {
                 iter.remove();
-                return true;
             }
         }
-        return false;
+        return fruits.size() < initialSize;
     }
 
     public int position (String specialFruit) {
@@ -39,15 +40,21 @@ public class Basket {
         return new HashSet<>(fruits);
     }
 
-    public void add (String newFruit) {
+    public boolean add (String newFruit) {
         if (newFruit != null) {
             fruits.add(newFruit);
+            return true;
         }
+        return false;
     }
 
     public void addAll (List<String> fruitsList) {
             if (fruitsList != null) {
-                fruits.addAll(fruitsList);
+                for (String element : fruitsList) {
+                    if (element != null) {
+                        fruits.add(element);
+                    }
+                }
             }
         }
 
