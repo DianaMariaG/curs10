@@ -1,14 +1,16 @@
 package ro.fasttrackit.curs10.ex3;
 
+import ro.fasttrackit.curs10.homework.StringUtils;
+
 public class Person {
     private String name;
     private int age;
     private String position;
 
     public Person (String name, int age, String pos) {
-        this.name = name;
-        this.age = age;
-        this.position = pos;
+        this.name = StringUtils.ensureNoEmpty(name);
+        this.age = Math.max(age, 18);
+        this.position = StringUtils.ensureNoEmpty(pos);
     }
 
     public String getName() {
@@ -18,7 +20,7 @@ public class Person {
         return this.age;
     }
     public String getPosition() {
-        return this.position;
+        return position;
     }
 
     @Override

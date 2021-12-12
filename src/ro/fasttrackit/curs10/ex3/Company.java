@@ -52,7 +52,9 @@ public class Company {
     }
 
     public void employAll (List<Person> allPersonsList) {
-        employees.addAll(allPersonsList);
+        if (allPersonsList.size() > 0) {
+            employees.addAll(allPersonsList);
+        }
     }
 
     @Override

@@ -18,7 +18,9 @@ public class Bouquet {
     }
 
     public void addAllFlowers (List<String> allFlowers) {
-        flowers.addAll(allFlowers);
+        if (allFlowers.size() > 0) {
+            flowers.addAll(allFlowers);
+        }
     }
 
     public void removeFlower (String oldFlower) {

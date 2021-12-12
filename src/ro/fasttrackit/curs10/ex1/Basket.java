@@ -1,9 +1,6 @@
 package ro.fasttrackit.curs10.ex1;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 public class Basket {
     private List<String> fruits;
@@ -14,16 +11,14 @@ public class Basket {
 
 
     public boolean find (String specialFruit) {
-            if (fruits.contains(specialFruit)) {
-                return true;
-            }
-        return false;
+        return fruits.contains(specialFruit);
     }
 
     public boolean remove (String specialFruit) {
-        for (String fruit : fruits) {
-            if (fruit.equals(specialFruit)) {
-                fruits.remove(fruit);
+        ListIterator<String> iter = fruits.listIterator();
+        while (iter.hasNext()) {//cat timp mai e un elm in lista
+            if (iter.next().equals(specialFruit)) {
+                iter.remove();
                 return true;
             }
         }
@@ -41,19 +36,20 @@ public class Basket {
     }
 
     public Collection<String> distinct() {
-        Collection<String> uniqueBasket = new HashSet<>();
-        uniqueBasket.addAll(fruits);
-        return uniqueBasket;
+        return new HashSet<>(fruits);
     }
 
     public void add (String newFruit) {
-        fruits.add(newFruit);
+        if (newFruit != null) {
+            fruits.add(newFruit);
+        }
     }
 
     public void addAll (List<String> fruitsList) {
-            fruits.addAll(fruitsList);
+            if (fruitsList != null) {
+                fruits.addAll(fruitsList);
+            }
         }
-
 
     public int count() {
         return fruits.size();
