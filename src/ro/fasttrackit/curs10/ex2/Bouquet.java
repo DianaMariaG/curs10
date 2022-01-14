@@ -18,7 +18,7 @@ public class Bouquet {
             flowers.add(newFlower);
             return true;
         }
-        return false;
+        return false; //comment
     }
 
     public void addAllFlowers (List<String> allFlowers) {
